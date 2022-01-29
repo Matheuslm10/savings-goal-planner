@@ -13,7 +13,7 @@ export function App(): JSX.Element {
       <Header />
       <Container>
         <Text content="Let's plan your saving goal." />
-        <Card>Card Content</Card>
+        <Card />
       </Container>
     </>
   )
