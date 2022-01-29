@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styles'
 
-import { ReactComponent as BuyAHouseIcon } from 'assets/icons/buy-a-house.svg'
+import { ReactComponent as BuyAHouseIcon } from 'assets/icons/goals/buy-a-house.svg'
 
 import ConfirmButton from 'components/ConfirmButton'
 import MonthlyAmoutSection from 'components/MonthlyAmoutSection'
