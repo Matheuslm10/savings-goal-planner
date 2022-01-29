@@ -1,9 +1,18 @@
 import styled from 'styled-components'
 
 export const Number = styled.p`
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 120%;
   color: #0079ff;
 `
 export const Title = styled.h3`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 120%;
   color: #1e2a32;
 `
 
@@ -32,4 +41,16 @@ export const Description = styled.div`
   padding: 0 32px;
   background-color: #f4f8fa;
   height: 83px;
+  border-radius: 0 0 8px 8px;
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+
+    span {
+      font-weight: 600;
+    }
+  }
 `

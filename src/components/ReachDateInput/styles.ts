@@ -15,4 +15,11 @@ export const Container = styled.div`
   flex-direction: column;
   margin-left: 16px;
   margin-top: 28px;
+
+  label {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+  }
 `
