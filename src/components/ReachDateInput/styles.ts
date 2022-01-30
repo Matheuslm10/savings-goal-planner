@@ -20,6 +20,14 @@ export const Container = styled.div`
     width: 24px;
     height: 34px;
     cursor: pointer;
+
+    :disabled {
+      cursor: default;
+
+      svg {
+        filter: opacity(45%);
+      }
+    }
   }
 
   @media (max-width: 560px) {

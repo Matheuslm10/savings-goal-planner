@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import moment from 'moment'
 
@@ -15,17 +15,38 @@ const getMonthName = (date: Date) => {
 
 const ReachDateInput = () => {
   const [reachDate, setReachDate] = useState(getNextMonthDateFromTheCurrent())
+  const [isMinimumDate, setIsMinimumDate] = useState(true)
 
   const jumpToNextMonth = () => {
     const nextMonthDate = moment(reachDate).add(1, 'month').toDate()
     setReachDate(nextMonthDate)
   }
 
+  const jumpToPreviousMonth = () => {
+    const previousMonthDate = moment(reachDate).subtract(1, 'month').toDate()
+    setReachDate(previousMonthDate)
+  }
+
+  useEffect(() => {
+    const currentDate = moment()
+    const previousDateToReachDate = moment(reachDate).subtract(1, 'month')
+
+    if (previousDateToReachDate.isSame(currentDate, 'month')) {
+      setIsMinimumDate(true)
+    } else {
+      setIsMinimumDate(false)
+    }
+  }, [reachDate])
+
   return (
     <S.ReachDateInput>
       <label htmlFor="reach-date">Reach goal by</label>
       <S.Container id="reach-date" role="input">
-        <button>
+        <button
+          aria-label="previous month button"
+          onClick={jumpToPreviousMonth}
+          disabled={isMinimumDate}
+        >
           <LeftArrowIcon />
         </button>
         <S.Text>
