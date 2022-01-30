@@ -57,7 +57,7 @@ describe('ReachDateInput', () => {
     expect(displayedYear).toHaveTextContent('2023')
   })
 
-  it('Should not allow the user to click on the left arrow when date is less than current month + 1.', () => {
+  it('Should not allow the user to click on the Left arrow when date is less than current month + 1.', () => {
     mockCurrentDate('2022-11-25')
     render(<ReachDateInput />)
     const displayedMonth = screen.getByTestId('month')
@@ -69,6 +69,27 @@ describe('ReachDateInput', () => {
     userEvent.click(leftArrow)
 
     expect(leftArrow).toBeDisabled()
+    expect(displayedMonth).toHaveTextContent('December')
+    expect(displayedYear).toHaveTextContent('2022')
+  })
+
+  it('Should render the previous month when the user is able to click on the Left arrow.', () => {
+    mockCurrentDate('2022-11-25')
+    render(<ReachDateInput />)
+    const displayedMonth = screen.getByTestId('month')
+    const displayedYear = screen.getByTestId('year')
+    const rightArrow = screen.getByRole('button', { name: 'next month button' })
+    const leftArrow = screen.getByRole('button', {
+      name: 'previous month button',
+    })
+
+    userEvent.click(rightArrow)
+
+    expect(displayedMonth).toHaveTextContent('January')
+    expect(displayedYear).toHaveTextContent('2023')
+
+    userEvent.click(leftArrow)
+
     expect(displayedMonth).toHaveTextContent('December')
     expect(displayedYear).toHaveTextContent('2022')
   })
