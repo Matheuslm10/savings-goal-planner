@@ -13,4 +13,8 @@ export const Button = styled.button`
   height: 56px;
   border-radius: 32px;
   border: 0;
+
+  @media (max-width: 420px) {
+    width: 100%;
+  }
 `

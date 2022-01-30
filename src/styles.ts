@@ -13,6 +13,11 @@ export const Container = styled.div`
     line-height: 120%;
     color: #1b31a8;
 
+    @media (max-width: 420px) {
+      margin-top: 32px;
+      font-size: 18px;
+    }
+
     span {
       font-weight: 600;
     }

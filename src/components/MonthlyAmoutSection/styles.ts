@@ -7,6 +7,10 @@ export const Number = styled.p`
   font-size: 32px;
   line-height: 120%;
   color: #0079ff;
+
+  @media (max-width: 420px) {
+    font-size: 24px;
+  }
 `
 export const Title = styled.h3`
   font-style: normal;
@@ -14,6 +18,10 @@ export const Title = styled.h3`
   font-size: 20px;
   line-height: 120%;
   color: #1e2a32;
+
+  @media (max-width: 420px) {
+    font-size: 18px;
+  }
 `
 
 export const Wrapper = styled.div`
@@ -33,6 +41,10 @@ export const Container = styled.div`
   padding: 0 32px;
   justify-content: space-between;
   height: 83px;
+
+  @media (max-width: 420px) {
+    padding: 0 24px;
+  }
 `
 
 export const Description = styled.div`
@@ -51,6 +63,10 @@ export const Description = styled.div`
 
     span {
       font-weight: 600;
+    }
+
+    @media (max-width: 420px) {
+      text-align: center;
     }
   }
 `

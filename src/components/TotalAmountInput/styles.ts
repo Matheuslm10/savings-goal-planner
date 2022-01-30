@@ -11,6 +11,14 @@ export const Container = styled.div`
     font-weight: normal;
     font-size: 14px;
     line-height: 150%;
+
+    @media (max-width: 420px) {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    margin-top: 20px;
   }
 `
 
@@ -41,4 +49,8 @@ export const Input = styled.input`
   }
   /* Removes spinners buttons in Firefox */
   -moz-appearance: textfield;
+
+  @media (max-width: 420px) {
+    font-size: 20px;
+  }
 `

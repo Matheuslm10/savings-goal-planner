@@ -20,6 +20,11 @@ export const Wrapper = styled.div`
     width: 24px;
     height: 34px;
   }
+
+  @media (max-width: 560px) {
+    width: 100%;
+    padding: 0 12px;
+  }
 `
 
 export const Text = styled.div`
@@ -34,6 +39,10 @@ export const Month = styled.div`
   font-weight: 600;
   font-size: 16px;
   color: #1e2a32;
+
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
 `
 
 export const Year = styled.div`
@@ -41,6 +50,10 @@ export const Year = styled.div`
   font-size: 16px;
   margin-top: 4px;
   color: #708797;
+
+  @media (max-width: 420px) {
+    font-size: 14px;
+  }
 `
 
 export const Container = styled.div`
@@ -54,5 +67,14 @@ export const Container = styled.div`
     font-weight: normal;
     font-size: 14px;
     line-height: 150%;
+
+    @media (max-width: 420px) {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    margin-left: 0;
+    margin-top: 16px;
   }
 `
