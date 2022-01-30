@@ -6,17 +6,20 @@ import { ReactComponent as LeftArrowIcon } from 'assets/icons/left-arrow.svg'
 import { ReactComponent as RightArrowIcon } from 'assets/icons/right-arrow.svg'
 
 const getNextMonthDateFromTheCurrent = () => {
-  const nextMonthDate = moment().add(1, 'month').toDate()
+  return moment().add(1, 'month').toDate()
+}
 
-  const monthName = nextMonthDate.toLocaleString('en-us', { month: 'long' })
-  const year = nextMonthDate.getFullYear()
-
-  return { monthName, year }
+const getMonthName = (date: Date) => {
+  return date.toLocaleString('en-us', { month: 'long' })
 }
 
 const ReachDateInput = () => {
-  const [month] = useState(getNextMonthDateFromTheCurrent().monthName)
-  const [year] = useState(getNextMonthDateFromTheCurrent().year)
+  const [reachDate, setReachDate] = useState(getNextMonthDateFromTheCurrent())
+
+  const jumpToNextMonth = () => {
+    const nextMonthDate = moment(reachDate).add(1, 'month').toDate()
+    setReachDate(nextMonthDate)
+  }
 
   return (
     <S.ReachDateInput>
@@ -26,10 +29,10 @@ const ReachDateInput = () => {
           <LeftArrowIcon />
         </button>
         <S.Text>
-          <S.Month data-testid="month">{month}</S.Month>
-          <S.Year data-testid="year">{year}</S.Year>
+          <S.Month data-testid="month">{getMonthName(reachDate)}</S.Month>
+          <S.Year data-testid="year">{reachDate.getFullYear()}</S.Year>
         </S.Text>
-        <button>
+        <button aria-label="next month button" onClick={jumpToNextMonth}>
           <RightArrowIcon />
         </button>
       </S.Container>

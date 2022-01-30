@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import ReachDateInput from '.'
 
@@ -16,7 +17,6 @@ describe('ReachDateInput', () => {
     mockCurrentDate('2022-01-25')
 
     render(<ReachDateInput />)
-
     const displayedMonth = screen.getByTestId('month')
 
     expect(displayedMonth).toHaveTextContent('February')
@@ -26,7 +26,6 @@ describe('ReachDateInput', () => {
     mockCurrentDate('2022-12-25')
 
     render(<ReachDateInput />)
-
     const displayedMonth = screen.getByTestId('month')
     const displayedYear = screen.getByTestId('year')
 
@@ -38,11 +37,23 @@ describe('ReachDateInput', () => {
     mockCurrentDate('2024-01-31')
 
     render(<ReachDateInput />)
-
     const displayedMonth = screen.getByTestId('month')
     const displayedYear = screen.getByTestId('year')
 
     expect(displayedMonth).toHaveTextContent('February')
     expect(displayedYear).toHaveTextContent('2024')
+  })
+
+  it('Should render the next month when the user clicks on the Right arrow.', () => {
+    mockCurrentDate('2022-11-25')
+    render(<ReachDateInput />)
+    const displayedMonth = screen.getByTestId('month')
+    const displayedYear = screen.getByTestId('year')
+    const rightArrow = screen.getByRole('button', { name: 'next month button' })
+
+    userEvent.click(rightArrow)
+
+    expect(displayedMonth).toHaveTextContent('January')
+    expect(displayedYear).toHaveTextContent('2023')
   })
 })

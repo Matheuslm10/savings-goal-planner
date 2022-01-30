@@ -19,6 +19,7 @@ export const Container = styled.div`
     appearance: none;
     width: 24px;
     height: 34px;
+    cursor: pointer;
   }
 
   @media (max-width: 560px) {
