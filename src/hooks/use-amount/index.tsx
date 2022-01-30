@@ -1,6 +1,6 @@
 import { useContext, createContext, useState, useCallback } from 'react'
 
-export type AmountContextType = {
+export type AmountContextTypes = {
   amount: number
   updateAmount: (newAmout: number) => void
 }
@@ -10,7 +10,7 @@ export const AmountContextDefaultValues = {
   updateAmount: () => null,
 }
 
-export const AmountContext = createContext<AmountContextType>(
+export const AmountContext = createContext<AmountContextTypes>(
   AmountContextDefaultValues
 )
 
