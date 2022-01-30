@@ -5,15 +5,18 @@ import moment from 'moment'
 import { ReactComponent as LeftArrowIcon } from 'assets/icons/left-arrow.svg'
 import { ReactComponent as RightArrowIcon } from 'assets/icons/right-arrow.svg'
 
-const getNextMonthFromTheCurrent = () => {
-  return moment()
-    .add(1, 'month')
-    .toDate()
-    .toLocaleString('en-us', { month: 'long' })
+const getNextMonthDateFromTheCurrent = () => {
+  const nextMonthDate = moment().add(1, 'month').toDate()
+
+  const monthName = nextMonthDate.toLocaleString('en-us', { month: 'long' })
+  const year = nextMonthDate.getFullYear()
+
+  return { monthName, year }
 }
 
 const ReachDateInput = () => {
-  const [month] = useState(getNextMonthFromTheCurrent())
+  const [month] = useState(getNextMonthDateFromTheCurrent().monthName)
+  const [year] = useState(getNextMonthDateFromTheCurrent().year)
 
   return (
     <S.ReachDateInput>
@@ -24,7 +27,7 @@ const ReachDateInput = () => {
         </button>
         <S.Text>
           <S.Month data-testid="month">{month}</S.Month>
-          <S.Year data-testid="year">2022</S.Year>
+          <S.Year data-testid="year">{year}</S.Year>
         </S.Text>
         <button>
           <RightArrowIcon />
