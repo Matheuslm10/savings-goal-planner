@@ -2,11 +2,13 @@ import { useContext, createContext, useState, useCallback } from 'react'
 
 export type AmountContextTypes = {
   amount: number
+  monthlyAmount: number
   updateAmount: (newAmout: number) => void
 }
 
 export const AmountContextDefaultValues = {
   amount: 0,
+  monthlyAmount: 0,
   updateAmount: () => null,
 }
 
@@ -20,6 +22,7 @@ export type AmountProviderProps = {
 
 const AmountProvider = ({ children }: AmountProviderProps) => {
   const [amount, setAmount] = useState(0)
+  const [monthlyAmount] = useState(0)
 
   const updateAmount = useCallback((newAmout: number) => {
     setAmount(newAmout)
@@ -29,6 +32,7 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
     <AmountContext.Provider
       value={{
         amount,
+        monthlyAmount,
         updateAmount,
       }}
     >

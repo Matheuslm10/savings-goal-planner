@@ -5,7 +5,7 @@ import { useAmount } from 'hooks/use-amount'
 import { formatValue } from 'react-currency-input-field'
 
 const MonthlyAmountSection = () => {
-  const { amount } = useAmount()
+  const { monthlyAmount } = useAmount()
 
   const mask = (value: number) => {
     return formatValue({
@@ -20,7 +20,7 @@ const MonthlyAmountSection = () => {
     <S.MonthlyAmountSection>
       <S.Heading>
         <S.Title>Monthly amount</S.Title>
-        <S.Number data-testid="monthly-amount">{mask(amount)}</S.Number>
+        <S.Number data-testid="monthly-amount">{mask(monthlyAmount)}</S.Number>
       </S.Heading>
       <S.Description>
         <p>

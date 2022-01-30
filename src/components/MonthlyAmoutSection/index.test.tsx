@@ -28,15 +28,15 @@ const customRender = (
   )
 
 describe('ReachDateInput', () => {
-  it('Should render the total amount provided by useAmount.', () => {
+  it('Should render the monthly amount calculated by useAmount.', () => {
     const amountProviderProps = {
       ...AmountContextDefaultValues,
-      amount: 30000,
+      monthlyAmount: 1345,
     }
 
     customRender(<MonthlyAmountSection />, { amountProviderProps })
     const displayedMonth = screen.getByTestId('monthly-amount')
 
-    expect(displayedMonth).toHaveTextContent('$30,000')
+    expect(displayedMonth).toHaveTextContent('$1,345')
   })
 })
