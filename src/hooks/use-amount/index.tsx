@@ -28,7 +28,7 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
   return (
     <AmountContext.Provider
       value={{
-        amount: amount,
+        amount,
         updateAmount,
       }}
     >

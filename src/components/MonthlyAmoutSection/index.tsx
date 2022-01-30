@@ -2,18 +2,25 @@ import React from 'react'
 import * as S from './styles'
 
 import { useAmount } from 'hooks/use-amount'
-import { currency } from 'utils/currencyMask'
+import { formatValue } from 'react-currency-input-field'
 
 const MonthlyAmountSection = () => {
   const { amount } = useAmount()
+
+  const mask = (value: number) => {
+    return formatValue({
+      value: value?.toString() || '',
+      groupSeparator: ',',
+      decimalSeparator: '.',
+      prefix: '$',
+    })
+  }
 
   return (
     <S.MonthlyAmountSection>
       <S.Heading>
         <S.Title>Monthly amount</S.Title>
-        <S.Number data-testid="monthly-amount">
-          ${currency(amount.toFixed(2).toString())}
-        </S.Number>
+        <S.Number data-testid="monthly-amount">{mask(amount)}</S.Number>
       </S.Heading>
       <S.Description>
         <p>

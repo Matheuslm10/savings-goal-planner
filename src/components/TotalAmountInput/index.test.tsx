@@ -1,5 +1,6 @@
 import { ReactElement } from 'react'
 import { render, screen, RenderOptions } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import {
   AmountContext,
@@ -7,7 +8,7 @@ import {
   AmountContextDefaultValues,
 } from 'hooks/use-amount'
 
-import MonthlyAmountSection from '.'
+import TotalAmountInput from '.'
 
 type CustomRenderProps = {
   amountProviderProps?: AmountContextTypes
@@ -28,15 +29,17 @@ const customRender = (
   )
 
 describe('ReachDateInput', () => {
-  it('Should render the total amount provided by useAmount.', () => {
+  it('Should call the updateAmount method for each number at the input.', async () => {
     const amountProviderProps = {
       ...AmountContextDefaultValues,
-      amount: 30000,
+      updateAmount: jest.fn(),
     }
 
-    customRender(<MonthlyAmountSection />, { amountProviderProps })
-    const displayedMonth = screen.getByTestId('monthly-amount')
+    customRender(<TotalAmountInput />, { amountProviderProps })
 
-    expect(displayedMonth).toHaveTextContent('$30,000')
+    const totalAmount = screen.getByRole('textbox')
+
+    userEvent.type(totalAmount, '25000')
+    expect(amountProviderProps.updateAmount).toHaveBeenCalledTimes(5)
   })
 })

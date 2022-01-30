@@ -1,26 +1,29 @@
-import React, { useState, useCallback } from 'react'
+import React, { useCallback } from 'react'
 import * as S from './styles'
+import CurrencyInput from 'react-currency-input-field'
 
-import { currency } from 'utils/currencyMask'
+import { useAmount } from 'hooks/use-amount'
 
 const TotalAmountInput = () => {
-  const [amount, setAmount] = useState('')
+  const { updateAmount } = useAmount()
 
-  const handleChange = useCallback((e: React.FormEvent<HTMLInputElement>) => {
-    const value = e.currentTarget.value
-    setAmount(currency(value))
-  }, [])
+  const handleChange = useCallback(
+    (value) => {
+      updateAmount(value)
+    },
+    [updateAmount]
+  )
 
   return (
     <S.TotalAmountInput>
       <label htmlFor="total-amount">Total amount</label>
-      <S.Input
-        type="text"
-        inputMode="decimal"
+      <CurrencyInput
         id="total-amount"
         name="total-amount"
-        value={amount}
-        onChange={handleChange}
+        decimalsLimit={2}
+        decimalSeparator="."
+        groupSeparator=","
+        onValueChange={handleChange}
       />
     </S.TotalAmountInput>
   )
