@@ -16,12 +16,12 @@ export const Card = styled.div`
   }
 `
 
-export const HeadingContainer = styled.div`
+export const HeadingWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `
 
-export const InputsContainer = styled.div`
+export const InputsWrapper = styled.div`
   display: flex;
   flex-direction: row;
 

@@ -6,9 +6,9 @@ import { ReactComponent as RightArrowIcon } from 'assets/icons/right-arrow.svg'
 
 const ReachDateInput = () => {
   return (
-    <S.Container>
+    <S.ReachDateInput>
       <label htmlFor="reach-date">Reach goal by</label>
-      <S.Wrapper id="reach-date" role="input">
+      <S.Container id="reach-date" role="input">
         <button>
           <LeftArrowIcon />
         </button>
@@ -19,8 +19,8 @@ const ReachDateInput = () => {
         <button>
           <RightArrowIcon />
         </button>
-      </S.Wrapper>
-    </S.Container>
+      </S.Container>
+    </S.ReachDateInput>
   )
 }
 

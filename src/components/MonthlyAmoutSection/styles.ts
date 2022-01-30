@@ -24,7 +24,7 @@ export const Title = styled.h3`
   }
 `
 
-export const Wrapper = styled.div`
+export const MonthlyAmountSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
   margin-top: 24px;
 `
 
-export const Container = styled.div`
+export const Heading = styled.div`
   display: flex;
   align-items: center;
   padding: 0 32px;

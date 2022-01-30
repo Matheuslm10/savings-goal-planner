@@ -11,17 +11,17 @@ import TotalAmoutInput from 'components/TotalAmountInput'
 const Card = () => {
   return (
     <S.Card>
-      <S.HeadingContainer>
+      <S.HeadingWrapper>
         <BuyAHouseIcon />
         <S.Heading>
           <h2>Buy a house</h2>
           <p>Saving goal</p>
         </S.Heading>
-      </S.HeadingContainer>
-      <S.InputsContainer>
+      </S.HeadingWrapper>
+      <S.InputsWrapper>
         <TotalAmoutInput />
         <ReachDateInput />
-      </S.InputsContainer>
+      </S.InputsWrapper>
       <MonthlyAmoutSection />
       <ConfirmButton />
     </S.Card>

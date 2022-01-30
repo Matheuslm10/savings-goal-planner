@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
+export const ConfirmButton = styled.button`
   background-color: #1b31a8;
   color: #ffffff;
   font-family: 'Work Sans';

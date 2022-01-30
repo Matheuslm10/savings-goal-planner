@@ -2,7 +2,7 @@ import React from 'react'
 import * as S from './styles'
 
 const ConfirmButton = () => {
-  return <S.Button>Confirm</S.Button>
+  return <S.ConfirmButton>Confirm</S.ConfirmButton>
 }
 
 export default ConfirmButton

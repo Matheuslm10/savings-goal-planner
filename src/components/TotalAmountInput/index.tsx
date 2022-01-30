@@ -11,7 +11,7 @@ const TotalAmountInput = () => {
   }, [])
 
   return (
-    <S.Container>
+    <S.TotalAmountInput>
       <label htmlFor="total-amount">Total amount</label>
       <S.Input
         type="text"
@@ -21,7 +21,7 @@ const TotalAmountInput = () => {
         value={amount}
         onChange={handleChange}
       />
-    </S.Container>
+    </S.TotalAmountInput>
   )
 }
 

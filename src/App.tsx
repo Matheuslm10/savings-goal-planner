@@ -10,12 +10,12 @@ export function App(): JSX.Element {
     <>
       <GlobalStyle />
       <Header />
-      <S.Container>
+      <S.Wrapper>
         <h1>
           Let&apos;s plan your <span>saving goal.</span>
         </h1>
         <Card />
-      </S.Container>
+      </S.Wrapper>
     </>
   )
 }
