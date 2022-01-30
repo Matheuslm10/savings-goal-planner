@@ -1,12 +1,19 @@
 import React from 'react'
 import * as S from './styles'
 
+import { useAmount } from 'hooks/use-amount'
+import { currency } from 'utils/currencyMask'
+
 const MonthlyAmountSection = () => {
+  const { amount } = useAmount()
+
   return (
     <S.MonthlyAmountSection>
       <S.Heading>
         <S.Title>Monthly amount</S.Title>
-        <S.Number>$0.00</S.Number>
+        <S.Number data-testid="monthly-amount">
+          ${currency(amount.toFixed(2).toString())}
+        </S.Number>
       </S.Heading>
       <S.Description>
         <p>

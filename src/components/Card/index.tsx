@@ -8,6 +8,8 @@ import MonthlyAmoutSection from 'components/MonthlyAmoutSection'
 import ReachDateInput from 'components/ReachDateInput'
 import TotalAmoutInput from 'components/TotalAmountInput'
 
+import { AmountProvider } from 'hooks/use-amount'
+
 const Card = () => {
   return (
     <S.Card>
@@ -18,11 +20,13 @@ const Card = () => {
           <p>Saving goal</p>
         </S.Heading>
       </S.HeadingWrapper>
-      <S.InputsWrapper>
-        <TotalAmoutInput />
-        <ReachDateInput />
-      </S.InputsWrapper>
-      <MonthlyAmoutSection />
+      <AmountProvider>
+        <S.InputsWrapper>
+          <TotalAmoutInput />
+          <ReachDateInput />
+        </S.InputsWrapper>
+        <MonthlyAmoutSection />
+      </AmountProvider>
       <ConfirmButton />
     </S.Card>
   )

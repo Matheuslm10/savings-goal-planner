@@ -7,7 +7,8 @@ const TotalAmountInput = () => {
   const [amount, setAmount] = useState('')
 
   const handleChange = useCallback((e: React.FormEvent<HTMLInputElement>) => {
-    setAmount(currency(e).currentTarget.value)
+    const value = e.currentTarget.value
+    setAmount(currency(value))
   }, [])
 
   return (
