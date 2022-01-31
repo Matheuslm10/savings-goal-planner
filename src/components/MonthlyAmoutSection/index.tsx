@@ -4,8 +4,12 @@ import * as S from './styles'
 import { useAmount } from 'hooks/use-amount'
 import { formatValue } from 'react-currency-input-field'
 
+const getMonthName = (date: Date | null) => {
+  return date?.toLocaleString('en-us', { month: 'long' })
+}
+
 const MonthlyAmountSection = () => {
-  const { monthlyAmount } = useAmount()
+  const { amount, reachDate, numberOfDeposits, monthlyAmount } = useAmount()
 
   const mask = (value: number) => {
     return formatValue({
@@ -17,18 +21,28 @@ const MonthlyAmountSection = () => {
     })
   }
 
+  const isPlural = () => {
+    return numberOfDeposits > 1 ? 's' : ''
+  }
+
   return (
     <S.MonthlyAmountSection>
       <S.Heading>
         <S.Title>Monthly amount</S.Title>
         <S.Number data-testid="monthly-amount">{mask(monthlyAmount)}</S.Number>
       </S.Heading>
-      <S.Description>
-        <p>
-          You&apos;re planning <span>1 monthly deposit</span> to reach your{' '}
-          <span>$0.00</span> goal by <span>February 2022.</span>
-        </p>
-      </S.Description>
+      <S.WrapperDescription>
+        <S.Description data-testid="description">
+          You&apos;re planning{' '}
+          <span>
+            {numberOfDeposits} monthly deposit{isPlural()}
+          </span>{' '}
+          to reach your <span>{mask(amount)}</span> goal by{' '}
+          <span>
+            {getMonthName(reachDate)} {reachDate?.getFullYear()}.
+          </span>
+        </S.Description>
+      </S.WrapperDescription>
     </S.MonthlyAmountSection>
   )
 }

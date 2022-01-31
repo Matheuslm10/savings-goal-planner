@@ -15,6 +15,7 @@ export type AmountContextTypes = {
   amount: number
   monthlyAmount: number
   reachDate: Date | null
+  numberOfDeposits: number
   updateAmount: (newAmout: number | undefined) => void
   updateReachDate: (newReachDate: Date) => void
 }
@@ -23,6 +24,7 @@ export const AmountContextDefaultValues = {
   amount: 0,
   monthlyAmount: 0,
   reachDate: null,
+  numberOfDeposits: 0,
   updateAmount: () => null,
   updateReachDate: () => Date,
 }
@@ -39,6 +41,7 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
   const [amount, setAmount] = useState(0)
   const [monthlyAmount, setMonthlyAmount] = useState(0)
   const [reachDate, setReachDate] = useState(getNextMonthDateFromTheCurrent())
+  const [numberOfDeposits, setNumberOfDeposits] = useState(0)
 
   const updateAmount = useCallback((newAmout: number | undefined) => {
     newAmout ? setAmount(newAmout) : setAmount(0)
@@ -48,21 +51,18 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
     setReachDate(newReachDate)
   }, [])
 
-  const monthsDiff = (d1: Date, d2: Date) => {
-    const date1 = new Date(d1)
-    const date2 = new Date(d2)
-    const years = date2.getFullYear() - date1.getFullYear()
-    const months = years * 12 + (date2.getMonth() - date1.getMonth())
-    return months
-  }
-
   useEffect(() => {
-    const calculateMonthlyAmount = () => {
+    const calculateMonthsDiff = () => {
       const currentDate = new Date()
-      const numberOfMonths = monthsDiff(currentDate, reachDate)
-      return amount / numberOfMonths
+      const years = reachDate.getFullYear() - currentDate.getFullYear()
+      const months =
+        years * 12 + (reachDate.getMonth() - currentDate.getMonth())
+      return months
     }
-    setMonthlyAmount(calculateMonthlyAmount())
+
+    const diffInMonths = calculateMonthsDiff()
+    setMonthlyAmount(amount / diffInMonths)
+    setNumberOfDeposits(diffInMonths)
   }, [amount, reachDate])
 
   return (
@@ -71,6 +71,7 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
         amount,
         monthlyAmount,
         reachDate,
+        numberOfDeposits,
         updateAmount,
         updateReachDate,
       }}

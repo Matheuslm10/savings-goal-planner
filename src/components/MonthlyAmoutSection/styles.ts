@@ -47,26 +47,26 @@ export const Heading = styled.div`
   }
 `
 
-export const Description = styled.div`
+export const WrapperDescription = styled.div`
   display: flex;
   align-items: center;
   padding: 0 32px;
   background-color: #f4f8fa;
   height: 83px;
   border-radius: 0 0 8px 8px;
+`
 
-  p {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
+export const Description = styled.div`
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
 
-    span {
-      font-weight: 600;
-    }
+  span {
+    font-weight: 600;
+  }
 
-    @media (max-width: 420px) {
-      text-align: center;
-    }
+  @media (max-width: 420px) {
+    text-align: center;
   }
 `

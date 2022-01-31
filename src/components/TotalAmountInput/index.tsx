@@ -9,7 +9,6 @@ const TotalAmountInput = () => {
 
   const handleChange = useCallback(
     (value) => {
-      console.log(value)
       updateAmount(value)
     },
     [updateAmount]
