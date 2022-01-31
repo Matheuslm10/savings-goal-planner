@@ -15,7 +15,7 @@ export type AmountContextTypes = {
   amount: number
   monthlyAmount: number
   reachDate: Date | null
-  updateAmount: (newAmout: number) => void
+  updateAmount: (newAmout: number | undefined) => void
   updateReachDate: (newReachDate: Date) => void
 }
 
@@ -40,8 +40,8 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
   const [monthlyAmount, setMonthlyAmount] = useState(0)
   const [reachDate, setReachDate] = useState(getNextMonthDateFromTheCurrent())
 
-  const updateAmount = useCallback((newAmout: number) => {
-    setAmount(newAmout)
+  const updateAmount = useCallback((newAmout: number | undefined) => {
+    newAmout ? setAmount(newAmout) : setAmount(0)
   }, [])
 
   const updateReachDate = useCallback((newReachDate: Date) => {

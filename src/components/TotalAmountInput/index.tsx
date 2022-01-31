@@ -9,6 +9,7 @@ const TotalAmountInput = () => {
 
   const handleChange = useCallback(
     (value) => {
+      console.log(value)
       updateAmount(value)
     },
     [updateAmount]
@@ -23,6 +24,7 @@ const TotalAmountInput = () => {
         decimalsLimit={2}
         decimalSeparator="."
         groupSeparator=","
+        allowNegativeValue={false}
         onValueChange={handleChange}
       />
     </S.TotalAmountInput>

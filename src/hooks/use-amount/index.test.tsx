@@ -53,6 +53,22 @@ describe('useAmount', () => {
     expect(result.current.amount).toBe(20000)
   })
 
+  it('Should update the amount value with 0 when its undefined.', () => {
+    const wrapper = ({ children }: AmountProviderProps) => (
+      <AmountProvider>{children}</AmountProvider>
+    )
+
+    const { result } = renderHook(() => useAmount(), {
+      wrapper,
+    })
+
+    act(() => {
+      result.current.updateAmount(undefined)
+    })
+
+    expect(result.current.amount).toBe(0)
+  })
+
   it('Should set reachDate with month being subsequent to the current date month.', () => {
     mockCurrentDate('2022-12-25')
 
