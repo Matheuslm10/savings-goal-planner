@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styles'
 
-import { useAmount } from 'hooks/use-amount'
+import { useSavingsGoal } from 'hooks/use-savings-goal'
 import { formatValue } from 'react-currency-input-field'
 
 const getMonthName = (date: Date | null) => {
@@ -9,7 +9,8 @@ const getMonthName = (date: Date | null) => {
 }
 
 const MonthlyAmountSection = () => {
-  const { amount, reachDate, numberOfDeposits, monthlyAmount } = useAmount()
+  const { amount, reachDate, numberOfDeposits, monthlyAmount } =
+    useSavingsGoal()
 
   const mask = (value: number) => {
     return formatValue({

@@ -2,10 +2,10 @@ import React, { useCallback } from 'react'
 import * as S from './styles'
 import CurrencyInput from 'react-currency-input-field'
 
-import { useAmount } from 'hooks/use-amount'
+import { useSavingsGoal } from 'hooks/use-savings-goal'
 
 const TotalAmountInput = () => {
-  const { updateAmount } = useAmount()
+  const { updateAmount } = useSavingsGoal()
 
   const handleChange = useCallback(
     (value) => {

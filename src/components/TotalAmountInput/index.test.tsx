@@ -6,7 +6,7 @@ import {
   AmountContext,
   AmountContextTypes,
   AmountContextDefaultValues,
-} from 'hooks/use-amount'
+} from 'hooks/use-savings-goal'
 
 import TotalAmountInput from '.'
 

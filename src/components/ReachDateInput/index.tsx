@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import moment from 'moment'
 
-import { useAmount } from 'hooks/use-amount'
+import { useSavingsGoal } from 'hooks/use-savings-goal'
 import { useKeyPress } from 'hooks/use-key-press'
 
 import { ReactComponent as LeftArrowIcon } from 'assets/icons/left-arrow.svg'
@@ -13,7 +13,7 @@ const getMonthName = (date: Date | null) => {
 }
 
 const ReachDateInput = () => {
-  const { reachDate, updateReachDate } = useAmount()
+  const { reachDate, updateReachDate } = useSavingsGoal()
   const [isMinimumDate, setIsMinimumDate] = useState(true)
 
   const jumpToNextMonth = () => {

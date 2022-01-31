@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { act } from '@testing-library/react'
-import { useAmount, AmountProvider, AmountProviderProps } from '.'
+import { useSavingsGoal, AmountProvider, AmountProviderProps } from '.'
 import moment from 'moment'
 
 const mockCurrentDate = (testDate: string) => {
@@ -8,7 +8,7 @@ const mockCurrentDate = (testDate: string) => {
   jest.setSystemTime(moment(new Date(testDate)).startOf('month').toDate())
 }
 
-describe('useAmount', () => {
+describe('useSavingsGoal', () => {
   beforeEach(() => {
     jest.useRealTimers()
   })
@@ -18,7 +18,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 
@@ -30,7 +30,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 
@@ -42,7 +42,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 
@@ -58,7 +58,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 
@@ -76,7 +76,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 
@@ -91,7 +91,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 
@@ -106,7 +106,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 
@@ -124,7 +124,7 @@ describe('useAmount', () => {
       <AmountProvider>{children}</AmountProvider>
     )
 
-    const { result } = renderHook(() => useAmount(), {
+    const { result } = renderHook(() => useSavingsGoal(), {
       wrapper,
     })
 

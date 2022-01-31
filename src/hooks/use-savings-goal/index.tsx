@@ -81,6 +81,6 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
   )
 }
 
-const useAmount = () => useContext(AmountContext)
+const useSavingsGoal = () => useContext(AmountContext)
 
-export { AmountProvider, useAmount }
+export { AmountProvider, useSavingsGoal }

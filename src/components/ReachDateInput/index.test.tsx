@@ -8,7 +8,7 @@ import {
   AmountContext,
   AmountContextTypes,
   AmountContextDefaultValues,
-} from 'hooks/use-amount'
+} from 'hooks/use-savings-goal'
 
 type CustomRenderProps = {
   amountProviderProps?: AmountContextTypes

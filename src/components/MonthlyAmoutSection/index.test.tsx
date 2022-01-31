@@ -5,7 +5,7 @@ import {
   AmountContext,
   AmountContextTypes,
   AmountContextDefaultValues,
-} from 'hooks/use-amount'
+} from 'hooks/use-savings-goal'
 
 import MonthlyAmountSection from '.'
 
@@ -28,7 +28,7 @@ const customRender = (
   )
 
 describe('ReachDateInput', () => {
-  it('Should render the monthly amount calculated by useAmount.', () => {
+  it('Should render the monthly amount calculated by useSavingsGoal.', () => {
     const amountProviderProps = {
       ...AmountContextDefaultValues,
       monthlyAmount: 1345,

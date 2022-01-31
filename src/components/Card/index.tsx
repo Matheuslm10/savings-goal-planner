@@ -8,7 +8,7 @@ import MonthlyAmoutSection from 'components/MonthlyAmoutSection'
 import ReachDateInput from 'components/ReachDateInput'
 import TotalAmoutInput from 'components/TotalAmountInput'
 
-import { AmountProvider } from 'hooks/use-amount'
+import { AmountProvider } from 'hooks/use-savings-goal'
 
 const Card = () => {
   return (
