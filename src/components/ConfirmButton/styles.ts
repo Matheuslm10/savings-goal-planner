@@ -14,6 +14,14 @@ export const ConfirmButton = styled.button`
   border-radius: 32px;
   border: 0;
 
+  :hover {
+    filter: brightness(110%);
+  }
+
+  :active {
+    transform: scale(98%);
+  }
+
   @media (max-width: 420px) {
     width: 100%;
   }

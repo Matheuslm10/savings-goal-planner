@@ -6,10 +6,17 @@ export const Number = styled.p`
   font-weight: 500;
   font-size: 32px;
   line-height: 120%;
+  max-width: 224px;
+  overflow-x: auto;
   color: #0079ff;
+
+  @media (max-width: 560px) {
+    max-width: 194px;
+  }
 
   @media (max-width: 420px) {
     font-size: 24px;
+    max-width: 150px;
   }
 `
 export const Title = styled.h3`
