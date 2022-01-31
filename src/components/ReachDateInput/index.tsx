@@ -2,29 +2,27 @@ import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 import moment from 'moment'
 
+import { useAmount } from 'hooks/use-amount'
+
 import { ReactComponent as LeftArrowIcon } from 'assets/icons/left-arrow.svg'
 import { ReactComponent as RightArrowIcon } from 'assets/icons/right-arrow.svg'
 
-const getNextMonthDateFromTheCurrent = () => {
-  return moment().add(1, 'month').toDate()
-}
-
-const getMonthName = (date: Date) => {
-  return date.toLocaleString('en-us', { month: 'long' })
+const getMonthName = (date: Date | null) => {
+  return date?.toLocaleString('en-us', { month: 'long' })
 }
 
 const ReachDateInput = () => {
-  const [reachDate, setReachDate] = useState(getNextMonthDateFromTheCurrent())
+  const { reachDate, updateReachDate } = useAmount()
   const [isMinimumDate, setIsMinimumDate] = useState(true)
 
   const jumpToNextMonth = () => {
     const nextMonthDate = moment(reachDate).add(1, 'month').toDate()
-    setReachDate(nextMonthDate)
+    updateReachDate(nextMonthDate)
   }
 
   const jumpToPreviousMonth = () => {
     const previousMonthDate = moment(reachDate).subtract(1, 'month').toDate()
-    setReachDate(previousMonthDate)
+    updateReachDate(previousMonthDate)
   }
 
   useEffect(() => {
@@ -51,7 +49,7 @@ const ReachDateInput = () => {
         </button>
         <S.Text>
           <S.Month data-testid="month">{getMonthName(reachDate)}</S.Month>
-          <S.Year data-testid="year">{reachDate.getFullYear()}</S.Year>
+          <S.Year data-testid="year">{reachDate?.getFullYear()}</S.Year>
         </S.Text>
         <button aria-label="next month button" onClick={jumpToNextMonth}>
           <RightArrowIcon />
