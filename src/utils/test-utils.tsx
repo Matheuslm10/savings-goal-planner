@@ -2,26 +2,26 @@ import { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 
 import {
-  AmountContext,
-  AmountContextTypes,
-  AmountContextDefaultValues,
+  SavingsGoalContext,
+  SavingsGoalContextTypes,
+  SavingsGoalContextDefaultValues,
 } from 'hooks/use-savings-goal'
 
 type CustomRenderProps = {
-  amountProviderProps?: AmountContextTypes
+  amountProviderProps?: SavingsGoalContextTypes
 } & Omit<RenderOptions, 'queries'>
 
 const customRender = (
   ui: ReactElement,
   {
-    amountProviderProps = AmountContextDefaultValues,
+    amountProviderProps = SavingsGoalContextDefaultValues,
     ...renderOptions
   }: CustomRenderProps = {}
 ) =>
   render(
-    <AmountContext.Provider value={amountProviderProps}>
+    <SavingsGoalContext.Provider value={amountProviderProps}>
       {ui}
-    </AmountContext.Provider>,
+    </SavingsGoalContext.Provider>,
     renderOptions
   )
 

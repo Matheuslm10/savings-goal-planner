@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { AmountContextDefaultValues } from 'hooks/use-savings-goal'
+import { SavingsGoalContextDefaultValues } from 'hooks/use-savings-goal'
 import { customRender } from 'utils/test-utils'
 
 import ReachDateInput from '.'
@@ -18,7 +18,7 @@ describe('ReachDateInput', () => {
 
   it('Should render the month and year of the reach date.', () => {
     const amountProviderProps = {
-      ...AmountContextDefaultValues,
+      ...SavingsGoalContextDefaultValues,
       reachDate: new Date('2023-03-25'),
     }
 
@@ -35,7 +35,7 @@ describe('ReachDateInput', () => {
     const testNextDate = new Date('2023-01-25')
 
     const amountProviderProps = {
-      ...AmountContextDefaultValues,
+      ...SavingsGoalContextDefaultValues,
       reachDate: testReachDate,
       updateReachDate: jest.fn(),
     }
@@ -56,7 +56,7 @@ describe('ReachDateInput', () => {
     const testPreviousDate = new Date('2022-12-25')
 
     const amountProviderProps = {
-      ...AmountContextDefaultValues,
+      ...SavingsGoalContextDefaultValues,
       reachDate: testReachDate,
       updateReachDate: jest.fn(),
     }
@@ -78,7 +78,7 @@ describe('ReachDateInput', () => {
     const testReachDate = new Date('2022-12-25')
 
     const amountProviderProps = {
-      ...AmountContextDefaultValues,
+      ...SavingsGoalContextDefaultValues,
       reachDate: testReachDate,
       updateReachDate: jest.fn(),
     }

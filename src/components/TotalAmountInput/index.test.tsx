@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import { AmountContextDefaultValues } from 'hooks/use-savings-goal'
+import { SavingsGoalContextDefaultValues } from 'hooks/use-savings-goal'
 import { customRender } from 'utils/test-utils'
 
 import TotalAmountInput from '.'
@@ -9,7 +9,7 @@ import TotalAmountInput from '.'
 describe('ReachDateInput', () => {
   it('Should call the updateAmount method for each number at the input.', async () => {
     const amountProviderProps = {
-      ...AmountContextDefaultValues,
+      ...SavingsGoalContextDefaultValues,
       updateAmount: jest.fn(),
     }
 

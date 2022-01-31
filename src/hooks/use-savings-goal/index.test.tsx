@@ -1,6 +1,10 @@
 import { renderHook } from '@testing-library/react-hooks'
 import { act } from '@testing-library/react'
-import { useSavingsGoal, AmountProvider, AmountProviderProps } from '.'
+import {
+  useSavingsGoal,
+  SavingsGoalProvider,
+  SavingsGoalProviderProps,
+} from '.'
 import moment from 'moment'
 
 const mockCurrentDate = (testDate: string) => {
@@ -14,8 +18,8 @@ describe('useSavingsGoal', () => {
   })
 
   it('Should return the amount default value.', () => {
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {
@@ -26,8 +30,8 @@ describe('useSavingsGoal', () => {
   })
 
   it('Should return the monthly amount default value.', () => {
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {
@@ -38,8 +42,8 @@ describe('useSavingsGoal', () => {
   })
 
   it('Should update the amount value.', () => {
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {
@@ -54,8 +58,8 @@ describe('useSavingsGoal', () => {
   })
 
   it('Should update the amount value with 0 when its undefined.', () => {
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {
@@ -72,8 +76,8 @@ describe('useSavingsGoal', () => {
   it('Should set reachDate with month being subsequent to the current date month.', () => {
     mockCurrentDate('2022-12-25')
 
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {
@@ -87,8 +91,8 @@ describe('useSavingsGoal', () => {
   it('Should set reachDate with month being subsequent to the current date month, when is leap year', () => {
     mockCurrentDate('2024-01-31')
 
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {
@@ -102,8 +106,8 @@ describe('useSavingsGoal', () => {
   it('Should set monthlyAmount accordingly with total amount and reachDate, with the default value for reachDate.', () => {
     mockCurrentDate('2022-01-01')
 
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {
@@ -120,8 +124,8 @@ describe('useSavingsGoal', () => {
   it('Should set monthlyAmount accordingly with total amount and reachDate, with 4 months ahead for reachDate value.', () => {
     mockCurrentDate('2022-01-01')
 
-    const wrapper = ({ children }: AmountProviderProps) => (
-      <AmountProvider>{children}</AmountProvider>
+    const wrapper = ({ children }: SavingsGoalProviderProps) => (
+      <SavingsGoalProvider>{children}</SavingsGoalProvider>
     )
 
     const { result } = renderHook(() => useSavingsGoal(), {

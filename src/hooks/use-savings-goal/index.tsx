@@ -11,7 +11,7 @@ const getNextMonthDateFromTheCurrent = () => {
   return moment().startOf('month').add(1, 'month').toDate()
 }
 
-export type AmountContextTypes = {
+export type SavingsGoalContextTypes = {
   amount: number
   monthlyAmount: number
   reachDate: Date | null
@@ -20,7 +20,7 @@ export type AmountContextTypes = {
   updateReachDate: (newReachDate: Date) => void
 }
 
-export const AmountContextDefaultValues = {
+export const SavingsGoalContextDefaultValues = {
   amount: 0,
   monthlyAmount: 0,
   reachDate: null,
@@ -29,15 +29,15 @@ export const AmountContextDefaultValues = {
   updateReachDate: () => Date,
 }
 
-export const AmountContext = createContext<AmountContextTypes>(
-  AmountContextDefaultValues
+export const SavingsGoalContext = createContext<SavingsGoalContextTypes>(
+  SavingsGoalContextDefaultValues
 )
 
-export type AmountProviderProps = {
+export type SavingsGoalProviderProps = {
   children: React.ReactNode
 }
 
-const AmountProvider = ({ children }: AmountProviderProps) => {
+const SavingsGoalProvider = ({ children }: SavingsGoalProviderProps) => {
   const [amount, setAmount] = useState(0)
   const [monthlyAmount, setMonthlyAmount] = useState(0)
   const [reachDate, setReachDate] = useState(getNextMonthDateFromTheCurrent())
@@ -66,7 +66,7 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
   }, [amount, reachDate])
 
   return (
-    <AmountContext.Provider
+    <SavingsGoalContext.Provider
       value={{
         amount,
         monthlyAmount,
@@ -77,10 +77,10 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
       }}
     >
       {children}
-    </AmountContext.Provider>
+    </SavingsGoalContext.Provider>
   )
 }
 
-const useSavingsGoal = () => useContext(AmountContext)
+const useSavingsGoal = () => useContext(SavingsGoalContext)
 
-export { AmountProvider, useSavingsGoal }
+export { SavingsGoalProvider, useSavingsGoal }
