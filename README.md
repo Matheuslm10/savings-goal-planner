@@ -17,6 +17,7 @@
  <a href="#bulb-requirements">Requirements</a> • 
  <a href="#mag-test-cases">Test Cases</a> • 
  <a href="#hammer_and_wrench-technologies">Technologies</a> • 
+ <a href="#atom_symbol-context-data">Context Data</a> •
  <a href="#computer-how-to-run">How to run</a> • 
  <a href="#balance_scale-license">License</a> • 
  <a href="#man_technologist-author">Author</a>
@@ -62,6 +63,13 @@ This app consists of a page where you can simulate saving towards a saving goal,
 - [React Currency Input Field Component](https://github.com/cchanxzy/react-currency-input-field)
 - [Moment.js](https://momentjs.com/)
 
+## :atom_symbol: Context Data
+
+This project uses the React Context API. The three main components (TotalAmountInput, ReachDateInput and MonthlyAmountSection) interact to the data provided by the context as follows:
+
+<p align="center">
+  <img alt="Context Data Flow Diagram" src="https://user-images.githubusercontent.com/17602947/151841881-5aecc7ed-bca7-41e4-b4ad-1d7124651409.png"> 
+</p>
 
 ## :computer: How to run
 
