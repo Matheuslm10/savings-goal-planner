@@ -1,32 +1,10 @@
-import { ReactElement } from 'react'
-import { render, screen, RenderOptions } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
+import { AmountContextDefaultValues } from 'hooks/use-savings-goal'
+import { customRender } from 'utils/test-utils'
+
 import ReachDateInput from '.'
-
-import {
-  AmountContext,
-  AmountContextTypes,
-  AmountContextDefaultValues,
-} from 'hooks/use-savings-goal'
-
-type CustomRenderProps = {
-  amountProviderProps?: AmountContextTypes
-} & Omit<RenderOptions, 'queries'>
-
-const customRender = (
-  ui: ReactElement,
-  {
-    amountProviderProps = AmountContextDefaultValues,
-    ...renderOptions
-  }: CustomRenderProps = {}
-) =>
-  render(
-    <AmountContext.Provider value={amountProviderProps}>
-      {ui}
-    </AmountContext.Provider>,
-    renderOptions
-  )
 
 const mockCurrentDate = (testDate: string) => {
   jest.useFakeTimers('modern')

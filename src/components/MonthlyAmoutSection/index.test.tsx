@@ -1,31 +1,9 @@
-import { ReactElement } from 'react'
-import { render, screen, RenderOptions } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 
-import {
-  AmountContext,
-  AmountContextTypes,
-  AmountContextDefaultValues,
-} from 'hooks/use-savings-goal'
+import { AmountContextDefaultValues } from 'hooks/use-savings-goal'
+import { customRender } from 'utils/test-utils'
 
 import MonthlyAmountSection from '.'
-
-type CustomRenderProps = {
-  amountProviderProps?: AmountContextTypes
-} & Omit<RenderOptions, 'queries'>
-
-const customRender = (
-  ui: ReactElement,
-  {
-    amountProviderProps = AmountContextDefaultValues,
-    ...renderOptions
-  }: CustomRenderProps = {}
-) =>
-  render(
-    <AmountContext.Provider value={amountProviderProps}>
-      {ui}
-    </AmountContext.Provider>,
-    renderOptions
-  )
 
 describe('ReachDateInput', () => {
   it('Should render the monthly amount calculated by useSavingsGoal.', () => {
