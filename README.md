@@ -2,7 +2,7 @@
     💰 Savings Goal Plan Simulator    
 </h1>
 <h4 align="center">
-  Find out how much you need to save per month! Let's plan!
+  Find out how close you are to your goal! Let's plan!
 </h4>
 
 <p align="center">
