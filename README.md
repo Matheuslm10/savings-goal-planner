@@ -14,7 +14,7 @@
 
 <p align="center">
  <a href="#sparkles-the-app">The App</a> •
- <a href="#bulb-requirements">Requirements</a> • 
+ <a href="#bulb-business-requirements">Business Requirements</a> • 
  <a href="#mag-test-cases">Test Cases</a> • 
  <a href="#hammer_and_wrench-technologies">Technologies</a> • 
  <a href="#atom_symbol-context-data">Context Data</a> •
@@ -32,7 +32,7 @@ This app consists of a page where you can simulate saving towards a saving goal,
   <img width="295" alt="Mobile" src="https://user-images.githubusercontent.com/17602947/151803284-7e121a9a-f621-4850-bde3-590df158f0ee.gif">
 </p>
 
-## :bulb: Requirements
+## :bulb: Business Requirements
 
 - :white_check_mark: The user should only be able to enter number on the total amout input;
 - :white_check_mark: The user should only be able to enter positive values on the total amout input;
@@ -98,19 +98,6 @@ $ yarn start
 ```
 
 Now you can access `http://localhost:3000` in your browser.
-
-### Linting and Format
-
-```
-yarn lint
-yarn format
-```
-
-### Testing
-
-```
-yarn test
-```
 
 ### Linting and Format
 
