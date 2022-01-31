@@ -1,4 +1,10 @@
-import { useContext, createContext, useState, useCallback } from 'react'
+import {
+  useContext,
+  createContext,
+  useState,
+  useCallback,
+  useEffect,
+} from 'react'
 import moment from 'moment'
 
 const getNextMonthDateFromTheCurrent = () => {
@@ -31,7 +37,7 @@ export type AmountProviderProps = {
 
 const AmountProvider = ({ children }: AmountProviderProps) => {
   const [amount, setAmount] = useState(0)
-  const [monthlyAmount] = useState(0)
+  const [monthlyAmount, setMonthlyAmount] = useState(0)
   const [reachDate, setReachDate] = useState(getNextMonthDateFromTheCurrent())
 
   const updateAmount = useCallback((newAmout: number) => {
@@ -41,6 +47,23 @@ const AmountProvider = ({ children }: AmountProviderProps) => {
   const updateReachDate = useCallback((newReachDate: Date) => {
     setReachDate(newReachDate)
   }, [])
+
+  const monthsDiff = (d1: Date, d2: Date) => {
+    const date1 = new Date(d1)
+    const date2 = new Date(d2)
+    const years = date2.getFullYear() - date1.getFullYear()
+    const months = years * 12 + (date2.getMonth() - date1.getMonth())
+    return months
+  }
+
+  useEffect(() => {
+    const calculateMonthlyAmount = () => {
+      const currentDate = new Date()
+      const numberOfMonths = monthsDiff(currentDate, reachDate)
+      return amount / numberOfMonths
+    }
+    setMonthlyAmount(calculateMonthlyAmount())
+  }, [amount, reachDate])
 
   return (
     <AmountContext.Provider

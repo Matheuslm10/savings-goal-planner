@@ -13,6 +13,7 @@ const MonthlyAmountSection = () => {
       groupSeparator: ',',
       decimalSeparator: '.',
       prefix: '$',
+      decimalScale: 2,
     })
   }
 
