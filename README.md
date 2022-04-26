@@ -1,15 +1,15 @@
 <h1 align="center">
-    💰 Savings Goal Plan Simulator    
+    💰 Savings Goal Planner    
 </h1>
 <h4 align="center">
   Find out how close you are to your goal! Let's plan!
 </h4>
 
 <p align="center">
-  <img alt="MIT License" src="https://img.shields.io/github/license/Matheuslm10/savings-goal-plan-simulator?style=plastic">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Matheuslm10/savings-goal-plan-simulator?style=plastic">
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Matheuslm10/savings-goal-plan-simulator?style=plastic">
-  <img alt="Javascript percentage" src="https://img.shields.io/github/languages/top/Matheuslm10/savings-goal-plan-simulator?style=plastic">    
+  <img alt="MIT License" src="https://img.shields.io/github/license/Matheuslm10/savings-goal-planner?style=plastic">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Matheuslm10/savings-goal-planner?style=plastic">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Matheuslm10/savings-goal-planner?style=plastic">
+  <img alt="Javascript percentage" src="https://img.shields.io/github/languages/top/Matheuslm10/savings-goal-planner?style=plastic">    
 </p>
 
 <p align="center">
@@ -77,7 +77,7 @@ I used TDD (Test Driven Development) to implement code related to business rules
 
 If I had more time to work on the application and imagining a scenario in which I could contribute to the evolution of this product together with a team, I believe I could work on some improvements.
 
-As the user experience is an important point for Origin (and also for me) I would definitely review all the flows with a Screen Reader and make the necessary changes to ensure the application is accessible. Also, I would suggest to my team that we put some dialog on the screen to allow users to tell how their experience using the application is going. The feedback would certainly help to improve the experience offered by the product.
+To improve the User Experience I would definitely review all the flows with a Screen Reader and make the necessary changes to ensure the application is accessible. Also, I would suggest to my team that we put some dialog on the screen to allow users to tell how their experience using the application is going. The feedback would certainly help to improve the experience offered by the product.
 
 In terms of maintainability, it would be important to create more atomic components that could serve different parts of the application, such as Button, Text and Alert.
 And also use variables for colors, facilitating future changes.
@@ -108,13 +108,13 @@ This project uses the React Context API. The three main components (TotalAmountI
 Clone the repository:
 
 ```
-$ git clone https://github.com/Matheuslm10/savings-goal-plan-simulator.git
+$ git clone https://github.com/Matheuslm10/savings-goal-planner.git
 ```
 
 Enter the directory:
 
 ```
-$ cd savings-goal-plan-simulator
+$ cd savings-goal-planner
 ```
 
 Install the dependencies:
