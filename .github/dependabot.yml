@@ -3,5 +3,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-    target-branch: "master"
+      interval: "daily"
+      time: "07:00"
+      timezone: "America/Sao_Paulo"
+    target-branch: "dependabot"
